@@ -5,6 +5,7 @@ const projectRoutes = require('./routes/project');
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
+const port = process.env.PORT || 8000
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
@@ -22,6 +23,6 @@ app.use(express.json());
 app.use('/experience', experienceRoutes);
 app.use('/project', projectRoutes);
 
-app.listen(8000, () => {
-    console.log(`Server Started at ${8000}`)
+app.listen(port, () => {
+    console.log(`Server Started at ${port}`)
 })
