@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const experienceRoutes = require('./routes/experience');
 const projectRoutes = require('./routes/project');
+const interestRoutes = require('./routes/interest');
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
@@ -22,6 +23,7 @@ const app = express();
 app.use(express.json());
 app.use('/experience', experienceRoutes);
 app.use('/project', projectRoutes);
+app.use('/interest', interestRoutes);
 
 app.listen(port, () => {
     console.log(`Server Started at ${port}`)
